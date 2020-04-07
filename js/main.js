@@ -1,4 +1,5 @@
 $(document).ready (function() {
+  var iconaSend = $(".right-input i");
   var btnInvioMsg = $(".btn-invio-msg");
   var input = $(".center-input input");
 
@@ -14,8 +15,30 @@ $(document).ready (function() {
     }
   }
 
+  // funzione che cambia l'icona di invio quando si clicca sull'area di testo
+  function swapIconSend() {
+    iconaSend.toggleClass("fab fa-telegram-plane fas fa-microphone");
+  }
+
   // richiamo la funzione inviaMsg al click sull'icona
   btnInvioMsg.click(inviaMsg);
+
+  // invio il msg premendo "INVIO" sulla tastiera
+  $(document).keydown(function (event) {
+    if(event.which == 13) {
+      inviaMsg();
+    }
+  });
+
+  // cambio l'icona del microfono quando sto scrivendo un messaggio
+  input.on({
+    focusin: function() {
+      swapIconSend();
+    }, focusout: function() {
+      swapIconSend();
+    }
+  });
+
 
 
 
