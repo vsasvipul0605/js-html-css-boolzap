@@ -13,11 +13,30 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../img/background.jpg");
+}
+
+.background-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 15%;
+  background-color: #009988;
+}
+
+.background-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 85%;
+  background-color: #DBDBD1;
 }
 
 .container {
-  height: 90%;
+  height: 95%;
   width: 80%;
   min-width: 1000px;
   display: flex;
@@ -36,12 +55,50 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+}
+
+.top-icon {
+  font-size: 24px;
+  margin: 0 5px;
+  color: #B1B1B1;
+}
+
+.user-img {
+  height: 100%;
+  width: 60px;
+}
+
+.user-img img{
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
 }
 
 .notification {
   height: 80px;
   display: flex;
+  align-items: center;
   background-color: #76DCFF;
+  padding: 10px 20px;
+}
+
+.notification i {
+  color: #76DCFF;
+  margin-right: 10px;
+  font-size: 24px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.attiva-notifiche {
+  display: flex;
+  flex-direction: column;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .search-chat {
@@ -66,6 +123,7 @@ main {
 .conversation {
   height: 80px;
   width: 100%;
+  padding: 10px;
   display: flex;
   background-color: #fff;
   border-bottom: 1px solid lightgrey;
@@ -73,6 +131,10 @@ main {
 
 .conversation:first-child {
   border-top: 1px solid lightgrey;
+}
+
+.preview {
+  margin-left: 20px;
 }
 
 .active {
@@ -88,12 +150,25 @@ main {
 .top-bar-chat {
   height: 80px;
   width: 100%;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
 }
 
 .main-info {
   display: flex;
+}
+
+.active-chat-info {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-option {
+  display: flex;
+  align-items: center;
 }
 
 /* regole chat box */
@@ -108,9 +183,21 @@ main {
 
 .messaggio {
   display: flex;
-  align-items: center;
-  min-height: 60px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   max-width: 90%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.text-msg {
+  padding: 10px 10px 0 10px;
+}
+
+.time-msg {
+  font-size: 10px;
+  padding: 5px;
 }
 
 .ricevuto {
@@ -120,7 +207,7 @@ main {
 
 .inviato {
   align-self: end;
-  background-color: green;
+  background-color: #CBFBB3;
 }
 
 .input-chat {
@@ -129,8 +216,16 @@ main {
   display: flex;
 }
 
+.input-chat i {
+  font-size: 24px;
+  color: #697376;
+}
+
 .left-input {
   width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .center-input {
@@ -146,4 +241,7 @@ main {
 
 .right-input {
   width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
