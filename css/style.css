@@ -13,16 +13,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.background-topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  background-color: green;
-  z-index: -1;
+  background-image: url("../img/background.jpg");
 }
 
 .container {
@@ -30,9 +21,7 @@ main {
   width: 80%;
   min-width: 1000px;
   display: flex;
-}
-
-.container * {
+  /* DEBUG:  */
   background-color: #fff;
 }
 
