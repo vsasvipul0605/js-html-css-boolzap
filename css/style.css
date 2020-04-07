@@ -3,8 +3,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* DEBUG:  */
-  /* border: 1px solid black; */
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+
+h5 {
+  color: #697376;
 }
 
 main {
@@ -60,8 +72,13 @@ main {
 
 .top-icon {
   font-size: 24px;
-  margin: 0 5px;
+  margin: 0 10px;
   color: #B1B1B1;
+}
+
+.top-icon:hover {
+  color: #697376;
+  cursor: pointer;
 }
 
 .user-img {
@@ -98,7 +115,15 @@ main {
 }
 
 .underline {
+  font-size: 14px;
+  color: #697376;
   text-decoration: underline;
+  padding-top: 5px;
+}
+
+.underline:hover {
+  cursor: pointer;
+  color: #fff;
 }
 
 .search-chat {
@@ -106,11 +131,21 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  color: #B1B1B1;
 }
 
 .search-chat input {
-  height: 90%;
+  height: 80%;
   width: 95%;
+  border: none;
+  border-radius: 10px;
+  padding-left: 50px;
 }
 
 .contacts {
@@ -125,8 +160,14 @@ main {
   width: 100%;
   padding: 10px;
   display: flex;
+  align-items: center;
   background-color: #fff;
   border-bottom: 1px solid lightgrey;
+}
+
+.conversation:hover {
+  cursor: pointer;
+  background-color: #E9EBEB;
 }
 
 .conversation:first-child {
@@ -135,6 +176,11 @@ main {
 
 .preview {
   margin-left: 20px;
+}
+
+.preview p {
+  font-size: 14px;
+  color: #B1B1B1;
 }
 
 .active {
@@ -198,6 +244,7 @@ main {
 .time-msg {
   font-size: 10px;
   padding: 5px;
+  color: #B1B1B1;
 }
 
 .ricevuto {
@@ -221,6 +268,11 @@ main {
   color: #697376;
 }
 
+.input-chat i:hover {
+  cursor: pointer;
+  color: #B1B1B1;
+}
+
 .left-input {
   width: 100px;
   display: flex;
@@ -236,7 +288,11 @@ main {
 
 .center-input input {
   width: 100%;
-  height: 90%;
+  height: 80%;
+  border: none;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 18px;
 }
 
 .right-input {

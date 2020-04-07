@@ -1,9 +1,9 @@
 $(document).ready (function() {
   var btnInvioMsg = $(".btn-invio-msg");
+  var input = $(".center-input input");
 
   // funzione che stampa nella chat box il messaggio scritto dall'utente
   function inviaMsg() {
-    var input = $(".center-input input");
     var testoMsg = input.val();
 
     // controllo che l'utente abbia scritto qualcosa
