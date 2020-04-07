@@ -261,6 +261,7 @@ main {
 .inviato {
   align-self: end;
   background-color: #CBFBB3;
+  margin-left: auto;
 }
 
 /* regole sezione input */
