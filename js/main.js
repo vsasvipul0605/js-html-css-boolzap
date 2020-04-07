@@ -1,7 +1,11 @@
 $(document).ready (function() {
+  // DICHIARAZIONE VARIABILI GLOBALI -------------------------------------------
+  
   var iconaSend = $(".right-input i");
   var btnInvioMsg = $(".btn-invio-msg");
   var input = $(".center-input input");
+
+  // DICHIARAZIONE FUNZIONI ----------------------------------------------------
 
   // funzione che stampa nella chat box il messaggio scritto dall'utente
   function inviaMsg() {
@@ -19,6 +23,8 @@ $(document).ready (function() {
   function swapIconSend() {
     iconaSend.toggleClass("fab fa-telegram-plane fas fa-microphone");
   }
+
+  // INIZIO CODICE -------------------------------------------------------------
 
   // richiamo la funzione inviaMsg al click sull'icona
   btnInvioMsg.click(inviaMsg);

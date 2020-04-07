@@ -1,4 +1,4 @@
-/* regole generali */
+/* regole generali -----------------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -55,12 +55,13 @@ main {
   background-color: #EAEAEA;
 }
 
-/* regole sezione sinistra */
+/* regole sezione sinistra ---------------------------------------------------*/
 .left-bar {
   width: 30%;
   height: 100%;
 }
 
+/* primo box sez sx */
 .user-info {
   height: 80px;
   width: 100%;
@@ -100,6 +101,7 @@ main {
   padding: 10px 20px;
 }
 
+/* box notifiche */
 .notification i {
   color: #76DCFF;
   margin-right: 10px;
@@ -126,6 +128,7 @@ main {
   color: #fff;
 }
 
+/* box ricerca */
 .search-chat {
   height: 50px;
   display: flex;
@@ -148,6 +151,7 @@ main {
   padding-left: 50px;
 }
 
+/* sezione contatti */
 .contacts {
   height: calc(100% - 210px);
   width: 100%;
@@ -187,12 +191,13 @@ main {
   background-color: #E9EBEB;
 }
 
-/* regole sezione destra */
+/* regole sezione destra -----------------------------------------------------*/
 .right-bar {
   width: 70%;
   border-left: 1px solid lightgrey;
 }
 
+/* barra superiore destra */
 .top-bar-chat {
   height: 80px;
   width: 100%;
@@ -257,6 +262,7 @@ main {
   background-color: #CBFBB3;
 }
 
+/* regole sezione input */
 .input-chat {
   height: 80px;
   width: 100%;
