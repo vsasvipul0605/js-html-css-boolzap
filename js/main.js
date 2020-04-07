@@ -5,9 +5,13 @@ $(document).ready (function() {
   function inviaMsg() {
     var input = $(".center-input input");
     var testoMsg = input.val();
-    input.val("");
 
-    $(".chat-box").append("<div class='messaggio inviato'><p class='text-msg'>" + testoMsg +  "</p><span class='time-msg'>11:15</span></div>");
+    // controllo che l'utente abbia scritto qualcosa
+    if(testoMsg != "") {
+      input.val("");
+
+      $(".chat-box").append("<div class='messaggio inviato'><p class='text-msg'>" + testoMsg +  "</p><span class='time-msg'>11:15</span></div>");
+    }
   }
 
   // richiamo la funzione inviaMsg al click sull'icona
