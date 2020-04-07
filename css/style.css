@@ -1,0 +1,30 @@
+/* regole generali */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* DEBUG:  */
+  border: 1px solid black;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 90%;
+  width: 80%;
+  display: flex;
+}
+
+.left-bar {
+  width: 30%;
+}
+
+.right-bar {
+  width: 70%;
+}
