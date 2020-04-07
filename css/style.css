@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   /* DEBUG:  */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 main {
@@ -21,13 +21,13 @@ main {
   width: 80%;
   min-width: 1000px;
   display: flex;
-  /* DEBUG:  */
-  background-color: #fff;
+  background-color: #EAEAEA;
 }
 
 /* regole sezione sinistra */
 .left-bar {
   width: 30%;
+  height: 100%;
 }
 
 .user-info {
@@ -41,27 +41,48 @@ main {
 .notification {
   height: 80px;
   display: flex;
+  background-color: #76DCFF;
 }
 
 .search-chat {
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-chat input {
+  height: 90%;
+  width: 95%;
 }
 
 .contacts {
   height: calc(100% - 210px);
   width: 100%;
   overflow-y: auto;
+  background-color: #fff;
 }
 
 .conversation {
   height: 80px;
   width: 100%;
   display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid lightgrey;
+}
+
+.conversation:first-child {
+  border-top: 1px solid lightgrey;
+}
+
+.active {
+  background-color: #E9EBEB;
 }
 
 /* regole sezione destra */
 .right-bar {
   width: 70%;
+  border-left: 1px solid lightgrey;
 }
 
 .top-bar-chat {
@@ -75,12 +96,14 @@ main {
   display: flex;
 }
 
+/* regole chat box */
 .chat-box {
   height: calc(100% - 160px);
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 50px;
+  background-image: url("../img/Sfondo.jpg");
 }
 
 .messaggio {
@@ -92,6 +115,7 @@ main {
 
 .ricevuto {
   align-self: start;
+  background-color: #fff;
 }
 
 .inviato {
