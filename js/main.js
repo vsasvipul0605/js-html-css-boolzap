@@ -14,10 +14,11 @@ $(document).ready (function() {
   var iconaSend = $(".right-input i");
   var btnInvioMsg = $(".btn-invio-msg");
   var input = $(".center-input input");
+  var searchInput = $(".search-chat input");
 
   // DICHIARAZIONE FUNZIONI ----------------------------------------------------
 
-  // funzione che stampa nella chat box il messaggio scritto dall'utente
+  // funzione che stampa nella chat box il messaggio scritto dall'utente, e risponde con "ok" dopo 1 secondo
   function inviaMsg() {
     var testoMsg = input.val();
 
@@ -61,7 +62,21 @@ $(document).ready (function() {
   });
 
 
+  $(document).keyup(function () {
+    var txtRicerca = searchInput.val();
+    var listaContatti = $(".conversation");
+    listaContatti.each(function() {
+      var nomeContatto = $(this).find(".preview h2").text();
 
+      if(!nomeContatto.toUpperCase().includes(txtRicerca.toUpperCase())) {
+        $(this).hide();
+      } else {
+        $(this).show();
+      }
+    })
+
+
+  });
 
 
 
