@@ -44,7 +44,7 @@ $(document).ready (function() {
   // funzione che ricerca tra i contatti in base all'input dell'utente
   function ricerca() {
     var txtRicerca = searchInput.val();
-    var listaContatti = $(".conversation");
+    var listaContatti = $(".contatto");
     listaContatti.each(function() {
       var nomeContatto = $(this).find(".preview h2").text();
 

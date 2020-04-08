@@ -159,7 +159,7 @@ main {
   background-color: #fff;
 }
 
-.conversation {
+.contatto {
   height: 80px;
   width: 100%;
   padding: 10px;
@@ -169,12 +169,12 @@ main {
   border-bottom: 1px solid lightgrey;
 }
 
-.conversation:hover {
+.contatto:hover {
   cursor: pointer;
   background-color: #E9EBEB;
 }
 
-.conversation:first-child {
+.contatto:first-child {
   border-top: 1px solid lightgrey;
 }
 
