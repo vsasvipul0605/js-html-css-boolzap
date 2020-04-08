@@ -46,7 +46,7 @@ $(document).ready (function() {
     var txtRicerca = searchInput.val();
     var listaContatti = $(".contatto");
     listaContatti.each(function() {
-      var nomeContatto = $(this).find(".preview h2").text();
+      var nomeContatto = $(this).find(".preview-left h2").text();
 
       if(!nomeContatto.toUpperCase().includes(txtRicerca.toUpperCase())) {
         $(this).hide();
