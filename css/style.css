@@ -180,10 +180,19 @@ main {
 
 .preview {
   margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .preview p {
   font-size: 14px;
+  color: #B1B1B1;
+}
+
+.preview-right span {
+  font-size: 12px;
   color: #B1B1B1;
 }
 
