@@ -40,6 +40,22 @@ $(document).ready (function() {
     iconaSend.toggleClass("fab fa-telegram-plane fas fa-microphone");
   }
 
+
+  // funzione che ricerca tra i contatti in base all'input dell'utente
+  function ricerca() {
+    var txtRicerca = searchInput.val();
+    var listaContatti = $(".conversation");
+    listaContatti.each(function() {
+      var nomeContatto = $(this).find(".preview h2").text();
+
+      if(!nomeContatto.toUpperCase().includes(txtRicerca.toUpperCase())) {
+        $(this).hide();
+      } else {
+        $(this).show();
+      }
+    })
+  }
+
   // INIZIO CODICE -------------------------------------------------------------
 
   // richiamo la funzione inviaMsg al click sull'icona
@@ -61,27 +77,8 @@ $(document).ready (function() {
     }
   });
 
-
-  $(document).keyup(function () {
-    var txtRicerca = searchInput.val();
-    var listaContatti = $(".conversation");
-    listaContatti.each(function() {
-      var nomeContatto = $(this).find(".preview h2").text();
-
-      if(!nomeContatto.toUpperCase().includes(txtRicerca.toUpperCase())) {
-        $(this).hide();
-      } else {
-        $(this).show();
-      }
-    })
-
-
-  });
-
-
-
-
-
+  // eseguo la ricerca ogni volta che l'utente inizia a scrivere qualcosa sull'input search
+  $(document).keyup(ricerca);
 
 
 
