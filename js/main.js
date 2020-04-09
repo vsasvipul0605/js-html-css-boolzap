@@ -122,10 +122,10 @@ $(document).ready (function() {
     }
   );
 
-  // funzione che al click su "cancella messaggio" mi nasconde il relativo messaggio
+  // funzione che al click su "cancella messaggio" elimina il relativo messaggio
   conversazioni.on("click", ".menu-msg span",
     function () {
-      $(this).parents(".messaggio").hide();
+      $(this).parents(".messaggio").remove();
     }
   );
 
