@@ -34,14 +34,24 @@ $(document).ready (function() {
     var msgRisposta = "ok";
     var chatActive = $(".chat-box.active");
     var contattoActive = $(".contatto.active");
-    var date = new Date();
-    var ora = date.getHours() + ":" + date.getMinutes();
+    var currentDate = new Date();
+    var minuti = currentDate.getMinutes();
+    var ora = currentDate.getHours() + ":" + getFullMinutes(minuti);
+
+    // funzione per aggiungere uno zero ai minuti se sono < di 10
+    function getFullMinutes (minuti) {
+      if(minuti < 10) {
+        minuti = "0" + minuti;
+      }
+      return minuti;
+    }
 
     // controllo che l'utente abbia scritto qualcosa
     if(testoMsg != "") {
       input.val("");
 
       chatActive.append('<div class="messaggio inviato"><div class="corpo-msg"><p class="text-msg">' + testoMsg + '</p><span class="time-msg">' + ora + '</span></div><div class="opzioni-msg"><i class="fas fa-ellipsis-v"></i></div><div class="menu-msg"><span>Cancella</span></div></div>');
+      // mostro nel campo preview il msg inviato
       contattoActive.find(".preview-left p").text(testoMsg);
 
       // messaggio di risposta automatico dopo un secondo
