@@ -251,12 +251,18 @@ main {
 
 .messaggio {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   max-width: 90%;
   border-radius: 10px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.corpo-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .text-msg {
@@ -267,6 +273,45 @@ main {
   font-size: 10px;
   padding: 5px;
   color: #B1B1B1;
+}
+
+.opzioni-msg {
+  padding: 0 10px;
+  display: none;
+}
+
+.messaggio:hover .opzioni-msg {
+  display: block;
+}
+
+.opzioni-msg:hover {
+  cursor: pointer;
+}
+
+.opzioni-msg i {
+  color: #B1B1B1;
+}
+
+.menu-msg {
+  position: absolute;
+  top: 100%;
+  background-color: inherit;
+  height: 50%;
+  width: 100%;
+  border-radius: inherit;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #B1B1B1;
+}
+
+.menu-msg span:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+.visible {
+  display: flex;
 }
 
 .ricevuto {
