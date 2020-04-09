@@ -36,11 +36,11 @@ $(document).ready (function() {
     if(testoMsg != "") {
       input.val("");
 
-      chatActive.append('<div class="messaggio inviato"><div class="corpo-msg"><p class="text-msg">' + testoMsg + '</p><span class="time-msg">13:36</span></div><div class="opzioni-msg"><i class="fas fa-ellipsis-v"></i></div><div class="menu-msg"><span>Cancella messaggio</span></div></div>');
+      chatActive.append('<div class="messaggio inviato"><div class="corpo-msg"><p class="text-msg">' + testoMsg + '</p><span class="time-msg">13:36</span></div><div class="opzioni-msg"><i class="fas fa-ellipsis-v"></i></div><div class="menu-msg"><span>Cancella</span></div></div>');
 
       // messaggio di risposta automatico dopo un secondo
       setTimeout (function () {
-        chatActive.append('<div class="messaggio ricevuto"><div class="corpo-msg"><p class="text-msg">ok</p><span class="time-msg">11:15</span></div><div class="opzioni-msg"><i class="fas fa-ellipsis-v"></i></div><div class="menu-msg"><span>Cancella messaggio</span></div></div>');
+        chatActive.append('<div class="messaggio ricevuto"><div class="corpo-msg"><p class="text-msg">ok</p><span class="time-msg">11:15</span></div><div class="opzioni-msg"><i class="fas fa-ellipsis-v"></i></div><div class="menu-msg"><span>Cancella</span></div></div>');
       }, 1000);
     }
   }
