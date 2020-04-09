@@ -53,6 +53,7 @@ $(document).ready (function() {
       chatActive.append('<div class="messaggio inviato"><div class="corpo-msg"><p class="text-msg">' + testoMsg + '</p><span class="time-msg">' + ora + '</span></div><div class="opzioni-msg"><i class="fas fa-ellipsis-v"></i></div><div class="menu-msg"><span>Cancella</span></div></div>');
       // mostro nel campo preview il msg inviato
       contattoActive.find(".preview-left p").text(testoMsg);
+      $(".active-chat-info").find("h5").text("Sta scrivendo...");
 
       // messaggio di risposta automatico dopo un secondo
       setTimeout (function () {
