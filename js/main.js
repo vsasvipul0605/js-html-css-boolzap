@@ -21,22 +21,25 @@ $(document).ready (function() {
   var btnInvioMsg = $(".btn-invio-msg");
   var input = $(".center-input input");
   var searchInput = $(".search-chat input");
+  var listaContatti = $(".contatto");
+  var conversazioni = $(".chat-box");
 
   // DICHIARAZIONE FUNZIONI ----------------------------------------------------
 
   // funzione che stampa nella chat box il messaggio scritto dall'utente, e risponde con "ok" dopo 1 secondo
   function inviaMsg() {
     var testoMsg = input.val();
+    var chatActive = $(".chat-box.active");
 
     // controllo che l'utente abbia scritto qualcosa
     if(testoMsg != "") {
       input.val("");
 
-      $(".chat-box").append("<div class='messaggio inviato'><p class='text-msg'>" + testoMsg +  "</p><span class='time-msg'>11:15</span></div>");
+      chatActive.append("<div class='messaggio inviato'><p class='text-msg'>" + testoMsg +  "</p><span class='time-msg'>11:15</span></div>");
 
       // messaggio di risposta automatico dopo un secondo
       setTimeout (function () {
-        $(".chat-box").append("<div class='messaggio ricevuto'><p class='text-msg'>ok</p><span class='time-msg'>11:15</span></div>");
+        chatActive.append("<div class='messaggio ricevuto'><p class='text-msg'>ok</p><span class='time-msg'>11:15</span></div>");
       }, 1000);
     }
   }
@@ -83,9 +86,33 @@ $(document).ready (function() {
     }
   );
 
-  // eseguo la ricerca ogni volta che l'utente inizia a scrivere qualcosa sull'input search
+  // eseguo la ricerca ogni volta che l'utente inizia a scrivere qualcosa
+  // sull'input search
   $(searchInput).keyup(ricerca);
 
+  // al click su un contatto tolgo la classe active a tutti gli elementi e la
+  // assegno solo a quello cliccato
+  // mi salvo il valore del data attribute "conv" e lo uso per andare ad
+  // assegnare la classe "active" alla chat corrispondente
+  listaContatti.click(
+    function () {
+      var indice = $(this).data("conv");
+      listaContatti.each(
+        function () {
+          $(this).removeClass("active");
+        }
+      )
+      $(this).addClass("active");
+      conversazioni.each(
+        function () {
+          $(this).removeClass("active");
+          if($(this).data("conv") == indice) {
+            $(this).addClass("active");
+          }
+        }
+      )
+    }
+  );
 
 
 });
