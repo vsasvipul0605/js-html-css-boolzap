@@ -297,6 +297,7 @@ main {
   min-width: 75px;
   width: 100%;
   position: absolute;
+  z-index: 1;
   top: 100%;
   background-color: inherit;
   border-radius: inherit;
@@ -304,6 +305,7 @@ main {
   justify-content: center;
   align-items: center;
   color: #B1B1B1;
+  border: 1px solid #B1B1B1;
 }
 
 .menu-msg span:hover {

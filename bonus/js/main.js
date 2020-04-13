@@ -151,10 +151,14 @@ $(document).ready (function() {
     }
   );
 
-  // funzione che al click su "cancella messaggio" elimina il relativo messaggio
+  // funzione che al click su "cancella messaggio" elimina il relativo messaggio e aggiorna l'anteprima della chat a sinistra
   conversazioni.on("click", ".menu-msg span",
     function () {
       $(this).parents(".messaggio").remove();
+      var lastMsg = $(".chat-box.active .text-msg").last();
+      var lastTime = $(".chat-box.active .time-msg").last();
+      $(".contatto.active").find(".preview-left p").text(lastMsg.text());
+      $(".contatto.active").find(".preview-right span").text(lastTime.text());
     }
   );
 
