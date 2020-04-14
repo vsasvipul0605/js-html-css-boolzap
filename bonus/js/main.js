@@ -26,6 +26,33 @@ $(document).ready (function() {
   var btnMsgOption = $(".opzioni-msg");
   var headerChat = $(".main-info");
 
+
+
+  // INIZIO CODICE -------------------------------------------------------------
+
+  // richiamo la funzione inviaMsg al click sull'icona
+  btnInvioMsg.click(inviaMsg);
+
+  // invio il msg premendo "INVIO" sulla tastiera
+  $(input).keydown(inviaMsgEnter);
+
+  // cambio l'icona del microfono quando sto scrivendo un messaggio
+  input.on("focusin focusout", swapIconSend);
+
+  // eseguo la ricerca ogni volta che l'utente inizia a scrivere qualcosa
+  // sull'input search
+  $(searchInput).keyup(ricerca);
+
+  // mostro la chat corrispondente al click su un contatto
+  listaContatti.click(mostraChat);
+
+  // funzione che al click sull'icona opzioni mi apre il menu a tendina
+  conversazioni.on("click", ".opzioni-msg", showMenu);
+
+  // cancella messaggio
+  conversazioni.on("click", ".menu-msg span", cancellaMsg);
+
+
   // DICHIARAZIONE FUNZIONI ----------------------------------------------------
 
   // funzione che stampa nella chat box il messaggio scritto dall'utente, e risponde con "ok" dopo 1 secondo
@@ -67,6 +94,13 @@ $(document).ready (function() {
 
   }
 
+  // funzione che invia il msg premendo "INVIO" sulla tastiera
+  function inviaMsgEnter(event) {
+    if(event.which == 13) {
+      inviaMsg();
+    }
+  }
+
   // funzione che cambia l'icona di invio quando si clicca sull'area di testo
   function swapIconSend() {
     iconaSend.toggleClass("fab fa-telegram-plane fas fa-microphone");
@@ -88,79 +122,39 @@ $(document).ready (function() {
     });
   }
 
-  // INIZIO CODICE -------------------------------------------------------------
-
-  // richiamo la funzione inviaMsg al click sull'icona
-  btnInvioMsg.click(inviaMsg);
-
-  // invio il msg premendo "INVIO" sulla tastiera
-  $(input).keydown(
-    function (event) {
-      if(event.which == 13) {
-        inviaMsg();
-      }
-    }
-  );
-
-  // cambio l'icona del microfono quando sto scrivendo un messaggio
-  input.on("focusin focusout",
-  function () {
-    swapIconSend();
-    }
-  );
-
-  // eseguo la ricerca ogni volta che l'utente inizia a scrivere qualcosa
-  // sull'input search
-  $(searchInput).keyup(ricerca);
-
   // al click su un contatto tolgo la classe active a tutti gli elementi e la
   // assegno solo a quello cliccato
   // mi salvo il valore del data attribute "conv" e lo uso per andare ad
   // assegnare la classe "active" alla chat corrispondente
-  listaContatti.click(
-    function () {
-      var indice = $(this).data("conv");
-      var imgCliccata, nomeCliccato, ultimoAccesso;
-      listaContatti.each(
-        function () {
-          $(this).removeClass("active");
-        }
-      )
-      $(this).addClass("active");
-      imgCliccata = $(this).find(".user-img").html();
-      nomeCliccato = $(this).find(".preview-left h2").text();
-      ultimoAccesso = $(this).find(".preview-right span").text();
-      conversazioni.each(
-        function () {
-          $(this).removeClass("active");
-          if($(this).data("conv") == indice) {
-            $(this).addClass("active");
-          }
-        }
-      )
-      headerChat.find(".user-img").html(imgCliccata);
-      headerChat.find(".active-chat-info h2").text(nomeCliccato);
-      headerChat.find(".active-chat-info h5").text("Ultimo accesso oggi alle " + ultimoAccesso);
-    }
-  );
+  function mostraChat() {
+    var indice = $(this).data("conv");
+    var imgCliccata, nomeCliccato, ultimoAccesso;
+    listaContatti.removeClass("active");
+    $(this).addClass("active");
+    // salvo un riferimento alle info dell'utente cliccato
+    imgCliccata = $(this).find(".user-img").html();
+    nomeCliccato = $(this).find(".preview-left h2").text();
+    ultimoAccesso = $(this).find(".preview-right span").text();
+    conversazioni.removeClass("active");
+    $(".chat-box[data-conv='" + indice + "']").addClass("active");
+    // inserisco le info dell'utente cliccato nell'header della chat
+    headerChat.find(".user-img").html(imgCliccata);
+    headerChat.find(".active-chat-info h2").text(nomeCliccato);
+    headerChat.find(".active-chat-info h5").text("Ultimo accesso oggi alle " + ultimoAccesso);
+  }
 
-  // funzione che al click sull'icona opzioni mi apre il menu a tendina
-  conversazioni.on("click", ".opzioni-msg",
-    function () {
-      $(this).siblings(".menu-msg").toggleClass("visible");
-    }
-  );
+  // funzione che mostra il sottomenu delle opzioni messaggio
+  function showMenu() {
+    $(this).siblings(".menu-msg").toggleClass("visible");
+  }
 
-  // funzione che al click su "cancella messaggio" elimina il relativo messaggio e aggiorna l'anteprima della chat a sinistra
-  conversazioni.on("click", ".menu-msg span",
-    function () {
-      $(this).parents(".messaggio").remove();
-      var lastMsg = $(".chat-box.active .text-msg").last();
-      var lastTime = $(".chat-box.active .time-msg").last();
-      $(".contatto.active").find(".preview-left p").text(lastMsg.text());
-      $(".contatto.active").find(".preview-right span").text(lastTime.text());
-    }
-  );
-
+  // funzione che al click su "cancella messaggio" elimina il relativo messaggio e aggiorna l'anteprima della chat
+  function cancellaMsg() {
+    $(this).parents(".messaggio").remove();
+    var lastMsg = $(".chat-box.active .text-msg").last();
+    var lastTime = $(".chat-box.active .time-msg").last();
+    $(".contatto.active").find(".preview-left p").text(lastMsg.text());
+    $(".contatto.active").find(".preview-right span").text(lastTime.text());
+  }
 
 });
