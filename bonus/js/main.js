@@ -145,6 +145,7 @@ $(document).ready (function() {
 
   // funzione che mostra il sottomenu delle opzioni messaggio
   function showMenu() {
+    $(".menu-msg").removeClass("visible");
     $(this).siblings(".menu-msg").toggleClass("visible");
   }
 
